@@ -1,6 +1,6 @@
 # CPU  
 ## Program description  
-To use this program, you need to write code to a file asm.txt, in this case, the code must be written using a specific syntax:  
+To use this program, you need to write code to a file asm.txt, in this case, the code must be written using a specific syntax:
 1) CRT (create) is a command that should be written at the beginning of the program code, it creates a stack for the processor;  
 2) IN - command to enter a number from the keyboard (the number is put on the processor stack);  
 3) PUSH 0 - puts the number 0 on the processor stack  
