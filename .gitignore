@@ -1,0 +1,17 @@
+Assembler/bin/
+Assembler/obj/
+Assembler/Assembler.cbp
+Assembler/Assembler.depend
+Assembler/Assembler.layout
+Assembler/lst.txt
+CPU/bin/
+CPU/obj/
+CPU/CPU.cbp
+CPU/CPU.depend
+CPU/CPU.layout
+CPU/log.txt
+Disassembler/bin/
+Disassembler/obj/
+Disassembler/Disassembler.cbp
+Disassembler/Disassembler.depend
+Disassembler/Disassembler.layout

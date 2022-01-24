@@ -1,0 +1,24 @@
+CRT
+PUSH 16
+POP ax ; ax - current point
+PUSH 465
+POP cx ; cx - size dyn mem
+PUSH 1
+POP [ax]
+DRAW
+:con
+MOVE
+POP bx ; bx - move
+PUSH ax
+PUSH bx
+ADD
+POP ax
+PUSH ax
+PUSH cx
+JA stop
+    PUSH 1
+    POP [ax]
+    DRAW
+    JMP con
+:stop
+HLT

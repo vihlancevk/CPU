@@ -1,0 +1,34 @@
+CRT
+IN
+POP ax
+PUSH 1
+POP cx
+PUSH ax
+PUSH 10
+JA next
+    PUSH ax
+    CALL FKT
+    PUSH cx
+    OUT
+    JMP stop
+:next
+PUSH -1
+OUT
+:stop
+HLT
+:FKT
+    POP bx
+    PUSH bx
+    PUSH 0
+    JA next1
+        RET
+    :next1
+    PUSH bx
+    PUSH cx
+    MUL
+    POP cx
+    PUSH bx
+    PUSH 1
+    SUB
+    CALL FKT
+    RET

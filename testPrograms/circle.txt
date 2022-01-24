@@ -1,0 +1,80 @@
+CRT
+PUSH 10
+POP ax
+PUSH ax
+POP bx
+PUSH ax
+PUSH 1.5
+MUL
+POP cx
+PUSH bx
+POP dx
+PUSH cx
+PUSH -1
+MUL
+POP ex
+PUSH 1
+POP fx
+:for1
+PUSH dx
+PUSH bx
+PUSH -1
+MUL
+JB end
+    :for2
+    PUSH ex
+    PUSH cx
+    JA con1
+        CALL PTH
+        PUSH ax
+        JE con
+            PUSH 0
+            POP [fx]
+            PUSH fx
+            PUSH 1
+            ADD
+            POP fx
+            PUSH ex
+            PUSH 1
+            ADD
+            POP ex
+            JMP for2
+        :con
+        PUSH 1
+        POP [fx]
+        PUSH fx
+        PUSH 1
+        ADD
+        POP fx
+        PUSH ex
+        PUSH 1
+        ADD
+        POP ex
+        JMP for2
+    :con1
+    PUSH cx
+    PUSH -1
+    MUL
+    POP ex
+    PUSH dx
+    PUSH 2
+    SUB
+    POP dx
+    JMP for1
+:end
+PUSH -1
+POP [fx]
+DRAW
+HLT
+:PTH
+    PUSH ex
+    PUSH ex
+    MUL
+    PUSH dx
+    PUSH dx
+    MUL
+    ADD
+    POP gx
+    SQRT gx
+    PUSH gx
+    RET 

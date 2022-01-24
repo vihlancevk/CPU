@@ -1,0 +1,128 @@
+CRT ; ax^2 + bx + c = 0
+IN ; a
+POP ax
+IN ; b
+POP bx
+IN ; c
+POP cx
+PUSH ax
+PUSH 0
+JNE next1
+    PUSH cx
+    PUSH bx
+    CALL SLE
+    PUSH ex
+    OUT
+    PUSH ex
+    PUSH 1
+    JNE next8
+        OUT
+    :next8
+    JMP stop
+:next1
+PUSH cx
+PUSH 0
+JNE next4
+    PUSH bx
+    PUSH ax
+    CALL SLE
+    PUSH ex
+    PUSH 1
+    ADD
+    PUSH 1
+    JBE next5
+        PUSH 2
+        OUT
+        PUSH 0
+        OUT
+        OUT
+        JMP stop
+    :next5
+    PUSH 1
+    OUT
+    PUSH 0
+    OUT
+    JMP stop
+:next4    
+PUSH bx
+PUSH bx
+MUL
+PUSH 4
+PUSH ax
+MUL
+PUSH cx
+MUL
+SUB
+POP dx
+PUSH dx
+PUSH 0
+JAE next6
+   PUSH 0
+   OUT
+   JMP stop
+:next6
+PUSH dx
+PUSH 0
+JNE next7
+    PUSH 1
+    OUT
+    PUSH bx
+    PUSH -1
+    MUL
+    PUSH 2
+    PUSH ax
+    MUL
+    DIV
+    OUT
+    JMP stop
+:next7
+PUSH 2
+OUT
+SQRT dx
+PUSH bx
+PUSH -1
+MUL
+PUSH dx
+SUB
+PUSH ax
+PUSH 2
+MUL
+DIV
+OUT
+PUSH bx
+PUSH -1
+MUL
+PUSH dx
+ADD
+PUSH ax
+PUSH 2
+MUL
+DIV
+OUT
+:stop
+HLT
+:SLE
+    POP ex ; 1
+    POP fx ; 2
+    PUSH ex
+    PUSH 0
+    JE next2
+    PUSH fx
+    PUSH ex
+    DIV
+    PUSH -1
+    MUL
+    PUSH 1
+    POP ex
+    RET
+    :next2
+    PUSH fx
+    PUSH 0
+    JE next3
+    PUSH 0
+    POP ex
+    RET
+    :next3
+    PUSH -1
+    POP ex
+    RET
