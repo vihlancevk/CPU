@@ -1,34 +1,80 @@
 CRT
-IN
-POP ax
-PUSH 1
-POP cx
-PUSH ax
 PUSH 10
-JA next
-    PUSH ax
-    CALL FKT
-    PUSH cx
-    OUT
-    JMP stop
-:next
+POP ax
+PUSH ax
+POP bx
+PUSH ax
+PUSH 1.5
+MUL
+POP cx
+PUSH bx
+POP dx
+PUSH cx
 PUSH -1
-OUT
-:stop
-HLT
-:FKT
-    POP bx
-    PUSH bx
-    PUSH 0
-    JA next1
-        RET
-    :next1
-    PUSH bx
+MUL
+POP ex
+PUSH 1
+POP fx
+:for1
+PUSH dx
+PUSH bx
+PUSH -1
+MUL
+JB end
+    :for2
+    PUSH ex
     PUSH cx
+    JA con1
+        CALL PTH
+        PUSH ax
+        JE con
+            PUSH 0
+            POP [fx]
+            PUSH fx
+            PUSH 1
+            ADD
+            POP fx
+            PUSH ex
+            PUSH 1
+            ADD
+            POP ex
+            JMP for2
+        :con
+        PUSH 1
+        POP [fx]
+        PUSH fx
+        PUSH 1
+        ADD
+        POP fx
+        PUSH ex
+        PUSH 1
+        ADD
+        POP ex
+        JMP for2
+    :con1
+    PUSH cx
+    PUSH -1
     MUL
-    POP cx
-    PUSH bx
-    PUSH 1
+    POP ex
+    PUSH dx
+    PUSH 2
     SUB
-    CALL FKT
-    RET
+    POP dx
+    JMP for1
+:end
+PUSH -1
+POP [fx]
+DRAW
+HLT
+:PTH
+    PUSH ex
+    PUSH ex
+    MUL
+    PUSH dx
+    PUSH dx
+    MUL
+    ADD
+    POP gx
+    SQRT gx
+    PUSH gx
+    RET 
