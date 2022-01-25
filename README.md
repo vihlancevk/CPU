@@ -3,10 +3,10 @@
 To use this program, you need to write code to a file asm.txt, in this case, the code must be written using a specific syntax:
 1) CRT (create) is a command that should be written at the beginning of the program code, it creates a stack for the processor;  
 2) IN - command to enter a number from the keyboard (the number is put on the processor stack);  
-3) PUSH 0 - puts the number 0 on the processor stack  
-PUSH ax - puts a number from the ax register on the processor stack  
-PUSH [1] - puts a number from RAM at address 1 on the processor stack  
-PUSH [ax] - puts a number from RAM to the address ax;  
+3) 1. PUSH 0 - puts the number 0 on the processor stack;  
+   2. PUSH ax - puts a number from the ax register on the processor stack;  
+   3. PUSH [1] - puts a number from RAM at address 1 on the processor stack;  
+   4. PUSH [ax] - puts a number from RAM to the address ax;  
 4) ADD - adds two numbers from the processor stack and puts the result back;  
 5) SUB - subtraction;  
 6) MUL - multiplication;  
