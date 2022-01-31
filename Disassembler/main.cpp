@@ -3,14 +3,14 @@
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
-#include "../libs/FileOperations.h"
+#include "../include/FileOperations.h"
 
 enum Commands
 {
     #define DEF_CMD_(num, name, isArg, code) \
     CPU_##name = num,
 
-    #include"../libs/Commands.h"
+    #include"../include/Commands.h"
     #undef COMMANDS_H_
 };
 #undef DEF_CMD_

@@ -2,8 +2,8 @@
 #include <math.h>
 #include <unistd.h>
 #include <cstdlib>
-#include "../libs/Stack.h"
-#include "../libs/FileOperations.h"
+#include "../include/Stack.h"
+#include "../include/FileOperations.h"
 
 #define DEBUG
 
@@ -18,7 +18,7 @@
     #define DEF_CMD_(num, name, arg, code) \
         CPU_##name = num,
 
-        #include "../libs/Commands.h"
+        #include "../include/Commands.h"
         #undef COMMANDS_H_
         #undef DEF_CMD_
     };
@@ -31,7 +31,7 @@ const size_t SIZE_MEM = 1000;
 const size_t NUMBER_REG = 7;
 const double PRECISION = 0.0;
 const int DEPTH_RECURSION = 20;
-const char *INPUT_FILE  = "../code.txt";
+const char *INPUT_FILE  = "../res/code.txt";
 const char *OUTPUT_FILE = ".txt";
 const int FIELD_WIDTH = 31;
 
@@ -262,7 +262,7 @@ CPU_ErrorCode executeCode(CPU_t *cpu)
                 case CPU_##name:                   \
                 code
 
-            #include "../libs/Commands.h"
+            #include "../include/Commands.h"
             #undef COMMANDS_H_
             #undef DEF_CMD_
             default:

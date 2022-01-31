@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../libs/FileOperations.h"
-#include "../libs/Stack.h"
+#include "../include/FileOperations.h"
+#include "../include/Stack.h"
 
-const char *INPUT_FILE = "../asm.txt";
-const char *OUTPUT_FILE = "../code.txt";
+const char *INPUT_FILE = "../res/asm.txt";
+const char *OUTPUT_FILE = "../res/code.txt";
 const char *LISTING = "../Assembler/lst.txt";
 const int SIZE_ARRAY_LABEL_INFO = 20;
 const int MAX_SIZE_STR = 20;
@@ -16,7 +16,7 @@ enum Commands
     #define DEF_CMD_(num, name, arg, code) \
         CPU_##name = (num),
 
-    #include "../libs/Commands.h"
+    #include "../include/Commands.h"
     #undef COMMANDS_H_
     #undef DEF_CMD_
 };
@@ -397,7 +397,7 @@ StatusAssembling assemblerFile(Line *lines, int linesCount, const char *nameOutp
             }                                                                                                  \
             else
 
-        #include "../libs/Commands.h"
+        #include "../include/Commands.h"
         #undef COMMANDS_H_
         #undef DEF_CMD_
 

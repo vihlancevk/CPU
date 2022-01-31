@@ -1,4 +1,4 @@
-#include "../FileOperations.h"
+#include "../include/FileOperations.h"
 
 static void *findNextLine(char *str);
 static void moveToNextLine(FILE *foutput);

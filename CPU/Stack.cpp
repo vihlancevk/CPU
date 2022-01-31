@@ -4,7 +4,7 @@
 #include <assert.h>
 #include <typeinfo>
 #include <cxxabi.h>
-#include "../Stack.h"
+#include "../include/Stack.h"
 
 #define DEBUG
 //#undef DEBUG

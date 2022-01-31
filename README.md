@@ -39,5 +39,5 @@ Disassembler/main.cpp - a file that converts binary code from a code file.txt in
 ## Using the program
 You can only call the execution of a file CPU/main.cpp , since programs are called inside this program Assembler/main.cpp and Disassembler/main.cpp using the system() function, which is done for the convenience of the user.  
 ### Additional information
-libs/ is a folder with header files *.h that are used inside programs.  
-testPrograms is a folder with examples of programs written using the syntax described above.
+include/ is a folder with header files *.h that are used inside programs.  
+testPrograms/ is a folder with examples of programs written using the syntax described above.
